@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Orione</title>
+<meta name="theme-color" content="#05040c">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Orione">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="sky"></canvas>
+<div id="labels" class="labels"></div>
+
+<div class="hud" id="hud" hidden>
+  <div class="top">
+    <canvas id="compass" class="compass" aria-label="Bussola: trascina per girarti"></canvas>
+    <div class="info">
+      <div class="where"><b id="worldName">Luna</b> <span id="keyInfo">La lidio · 68</span></div>
+      <button class="pill" id="sensorBtn">Sensori</button>
+    </div>
+  </div>
+  <div class="bottom">
+    <button class="hb" id="addBtn"><i>＋</i>Elementi</button>
+    <button class="hb" id="labBtn"><i>⌬</i>Catena</button>
+    <button class="hb" id="worldBtn"><i>◐</i>Mondo</button>
+    <button class="hb" id="mutBtn"><i>✦</i>Muta</button>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<!-- start -->
+<section class="start" id="start">
+  <div class="start-in">
+    <p class="eyebrow">viaggio tra suono e immagini</p>
+    <h1>ORIONE</h1>
+    <p class="lede">Gira su te stesso col telefono: i suoni vivono intorno a te. Tocca, trascina, guarda il cielo o la terra, scuoti per cambiare tonalità.</p>
+    <div class="worlds" id="startWorlds"></div>
+    <div class="start-actions">
+      <button class="go" id="goBtn">Inizia il viaggio</button>
+      <button class="go ghost" id="resumeBtn" hidden>Riprendi l’ultimo</button>
+    </div>
+    <p class="hint">Meglio con le cuffie. Ti verrà chiesto di usare i sensori di movimento.</p>
+  </div>
+</section>
+
+<!-- bottom sheet -->
+<section class="sheet" id="sheet" hidden>
+  <div class="sheet-box">
+    <div class="sheet-head"><h2 id="sheetTitle"></h2><button class="x" id="sheetClose" aria-label="Chiudi">✕</button></div>
+    <div class="sheet-body" id="sheetBody"></div>
+  </div>
+</section>
+
+<!-- chain lab -->
+<section class="lab" id="lab" hidden>
+  <div class="lab-head">
+    <div>
+      <h2>Catena</h2>
+      <p>Trascina un elemento sopra un altro per legarli: il primo passa le sue note al secondo, che le ripete trasformate. Tocca un legame per cambiarlo.</p>
+    </div>
+    <button class="x" id="labClose" aria-label="Chiudi">✕</button>
+  </div>
+  <canvas id="labCv"></canvas>
+  <div id="labAtoms"></div>
+  <div class="bondmenu" id="bondMenu" hidden></div>
+</section>
+
+<script src="audio.js"></script>
+<script src="visual.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
